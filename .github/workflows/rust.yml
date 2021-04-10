@@ -11,18 +11,25 @@ env:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - name: Build
       run: cargo build --release
+      
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
     - name: Run Tests
       run: cargo test --release
+      
+  artifact:
+    runs-on: ubuntu-18.04
+    needs: build
+    steps:  
     - name: Upload Artifact
       uses: actions/upload-artifact@v2.2.3
       with:
-        # Artifact name
         name: rust-web
         path: target/release/rust-web
