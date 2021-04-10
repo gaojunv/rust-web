@@ -11,21 +11,21 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
     - name: Build
       run: cargo build --release
       
   test:
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
     - name: Run Tests
       run: cargo test --release
       
   artifact:
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     needs: build
     steps:  
     - name: Upload Artifact
