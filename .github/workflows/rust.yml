@@ -17,20 +17,21 @@ jobs:
       with:
         clean: false
     - name: Build
-      run: cargo build --release
+      run: cargo build --release --verbose
       
   test:
     runs-on: self-hosted
+    needs: build
     steps:
     - uses: actions/checkout@v2
       with:
         clean: false
     - name: Run Tests
-      run: cargo test --release
+      run: cargo test --release --verbose
       
   artifact:
     runs-on: self-hosted
-    needs: build
+    needs: test
     steps:  
     - name: Upload Artifact
       uses: actions/upload-artifact@v2.2.3
