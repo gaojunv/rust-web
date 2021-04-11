@@ -40,3 +40,14 @@ jobs:
       with:
         name: rust-web
         path: target/release/rust-web
+            
+  deploy:
+    runs-on: self-hosted
+    needs: test
+    steps:  
+    - name: Stop Service
+      run: service rust-web stop
+    - name: Copy
+      run: cp target/release/rust-web /usr/local/app
+    - name: Start Service
+      run: service rust-web start
