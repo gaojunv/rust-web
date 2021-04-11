@@ -19,7 +19,7 @@ jobs:
         clean: false
     - name: Build
       run: cargo build --release --verbose
-    - name: Run Tests
+    - name: Tests
       run: cargo test --release --verbose
     - name: Upload Artifact
       uses: actions/upload-artifact@v2.2.3
