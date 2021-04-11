@@ -46,8 +46,8 @@ jobs:
     needs: test
     steps:  
     - name: Stop Service
-      run: service rust-web stop
+      run: service web stop
     - name: Copy
       run: cp target/release/rust-web /usr/local/app
     - name: Start Service
-      run: service rust-web start
+      run: service web start
