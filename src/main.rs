@@ -9,7 +9,7 @@ async fn index(web::Path(()): web::Path<()>) -> impl Responder {
             <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
                 <title>gaojun.top</title>
           </head>
-         <body><button>确定</button><button>取消</button></body>  
+         <body><button>确定</button><button>取消</button><button>222</button></body>  
         </html>"
     ))
 }
